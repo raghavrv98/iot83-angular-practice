@@ -1,0 +1,23 @@
+<div class="outer">
+	<div class="login-page">
+		<h1>Add Or Edit Employee Details</h1>
+		<form #simpleForm="ngForm" (ngSubmit)="onSubmitHandler(simpleForm.value)">
+			<div class="form-group">
+				<label htmlFor="name">EmpID</label>
+				<input type="text" [ngModel]="editData.empId" class="form-control" name="empId" aria-describedby="name"
+					placeholder="Enter EmpId" required />
+			</div>
+			<div class="form-group">
+				<label htmlFor="empName">EmpName</label>
+				<input type="text" [ngModel]="editData.empName" class="form-control" name="empName"
+					placeholder="Enter EmpName" required />
+			</div>
+			<div class="form-group">
+				<label htmlFor="emailId">Email ID</label>
+				<input type="email" [ngModel]="editData.emailId" class="form-control" name="emailId"
+					placeholder="Enter Email Id" required />
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>

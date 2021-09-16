@@ -1,0 +1,30 @@
+<div class="outer">
+	<h1 class="text-center">Employee List</h1>
+	<button (click)="logoutHandler()" type="button" class="btn btn-secondary logout">Logut</button>
+	<button type="button" routerLink="/addOrEditUser" class="btn btn-success add">Add Employee</button>
+	<div class="employee-list-table">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">EmpID</th>
+					<th scope="col">EmpName</th>
+					<th scope="col">EmailID</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody *ngIf="show else elseBlock">
+				<tr *ngFor="let item of empData; let i = index;">
+					<td>{{item.empId}}</td>
+					<td>{{item.empName}}</td>
+					<td>{{item.emailId}}</td>
+					<td><span class="edit-icon" (click)="addOrEditHandlerHandler(i)"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+						<span class="delete-icon" (click)="deleteHandler(i)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+					</td>
+				</tr>
+			</tbody>
+			<ng-template #elseBlock>
+				<h4> No Employees Found</h4>
+			</ng-template>
+		</table>
+	</div>
+</div>
